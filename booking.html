@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@100;300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css" integrity="sha512-SgaqKKxJDQ/tAUAAXzvxZz33rmn7leYDYfBP+YoMRSENhf3zJyx3SBASt/OfeQwBHA1nxMis7mM3EV/oYT6Fdw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>booking</title>
+    <style>
+    body {
+      background-image: url("background.png");
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      font-size: 10px;
+      max-width: 450px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #eb5353;
+      border-radius: 5px;
+      background-color: rgba(1,1,1, .5);
+    }
+    
+    h1 {
+      text-align: center;
+      color: #fff;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #222;
+      color: #fff;
+    }
+    
+    textarea {
+      height: 100px;
+    }
+    
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    .fa-solid{
+      font-size: 50px;
+      margin-left: 50px;
+      position: relative;
+      top: 50px;
+      color: #4CAF50;
+      opacity: 80%;
+    }
+  </style>
+</head>
+<body>
+  <a href="menu.html"><i class="fa-solid fa-backward"></i></a>
+  <div class="container">
+    <h1>Book on Us</h1>
+    <form action="#" method="post">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" name="phone" required>
+      
+      <label for="event">Event Type:</label>
+      <select id="event" name="event">
+        <option value="wedding">Wedding</option>
+        <option value="birthday">Birthday</option>
+        <option value="corporate">Corporate</option>
+        <option value="other">Other</option>
+      </select>
+      
+      <label for="date">Event Date:</label>
+      <input type="text" id="date" name="date" required>
+      
+      <label for="message">Additional Details:</label>
+      <textarea id="message" name="message"></textarea>
+      
+      <input type="submit" value="Book Now">
+    </form>
+  </div>
+</body>
+</html>

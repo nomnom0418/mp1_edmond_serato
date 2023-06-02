@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MP1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@100;300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css" integrity="sha512-SgaqKKxJDQ/tAUAAXzvxZz33rmn7leYDYfBP+YoMRSENhf3zJyx3SBASt/OfeQwBHA1nxMis7mM3EV/oYT6Fdw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="Mp1.css">
+<style>
+  .contactus_container {
+    font-family: Raleway, sans-serif;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  input[type=text], textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5PX;
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  .footer{
+    display: flex;
+    font-size: 20px;
+    width: 100vw;
+    justify-content: space-around;
+  }
+  .fa-facebook{
+    color: rgb(72, 72, 238);
+  }
+  .fa-envelopes-bulk{
+    color: orange;
+  }
+  .fa-square-phone-flip{
+    color:rgb(223, 68, 68)
+  }
+  .bot{
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+    font-family: Raleway, sans-serif;;
+  }
+</style>
+  
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <div class="ediths_catering">
+        <p class="ediths">Edith's</p>
+        <p class="edith">Catering</p>
+      </div>
+      <ul class="nav_menu">
+        <li class="menu home_menu"><a href="index.html" style="text-decoration: none;">HOME</a></li>
+        <li class="menu about_menu"><a href="menu.html" style="text-decoration: none;">MENU</a></li>
+        <li class="menu services_menu"><a href="services.html" style="text-decoration: none;">SERVICES</a> </li>
+        <li class="menu event_place"><a href="event_place.html" style="text-decoration: none;">EVENT PLACE</a></li>
+        <li class="menu booking"><a href="booking.html" style="text-decoration: none;">BOOK</a></li>
+        <li class="menu contact_us_menu"><a href="contact_us.html" style="text-decoration: none;">CONTACT US</a></li>
+         
+      </ul>
+    </nav>
+  </div>
+  <div class="contain_burger">
+    <div class="fa-burgers"><i class="fa-solid fa-burger"></i></div>
+    <div></div>
+    <nav class="burger_container">
+      <ul class="burger_menu">
+        <li class="menu home_menu"><a href="index.html" style="text-decoration: none;">HOME</a></li>
+        <li class="menu about_menu"><a href="menu.html" style="text-decoration: none;">MENU</a></li>
+        <li class="menu services_menu"><a href="services.html" style="text-decoration: none;">SERVICES</a> </li>
+        <li class="menu event_place"><a href="event_place.html" style="text-decoration: none;">EVENT PLACE</a></li>
+        <li class="menu booking"><a href="booking.html" style="text-decoration: none;">BOOK</a></li>
+        <li class="menu contact_us_menu"><a href="contact_us.html" style="text-decoration: none;">CONTACT US</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+  <div class="my_body">
+    <div class="contactus_container">
+      <h2>Contact US</h2>
+      <form action="#" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name0" name="name0" placeholder="Your name.." required>
+  
+        <label for="email">Email</label>
+        <input type="text" id="email0" name="email0" placeholder="Your email.." required>
+  
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Write something.." required></textarea>
+  
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+  
+    <div class="footer">
+      <i class="fa-brands fa-facebook"></i>
+      <i class="fa-solid fa-envelopes-bulk"></i>
+      <i class="fa-solid fa-square-phone-flip"></i>
+    </div>
+    <div class="bot">
+     <div> http://edithscatering </div>
+      <div>edithscatering@gmail.com </div>
+      <div>0909-123-456-789 </div>
+    </div>
+  
+</body>
+</html>
