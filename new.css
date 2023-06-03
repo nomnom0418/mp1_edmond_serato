@@ -520,10 +520,8 @@ input {
 /*services*/
 .tit{
   font-size: 25px;
+  font-weight: 100;
   font-family: Raleway, sans-serif;
-  background-image: linear-gradient(to right, rgb(247, 119, 119) , rgb(124, 167, 202));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   margin-bottom: 20px;
 }
 
