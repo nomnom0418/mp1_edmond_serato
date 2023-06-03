@@ -73,7 +73,7 @@ nav{
   display: grid;
   grid-template-columns: 1fr 6fr;
   width: 120px;
-  position: relative;
+  position: absolute;
   float: right;
   transform: translate(0px, -68px);
 }
@@ -214,17 +214,18 @@ input[type=submit] {
   border: none;
   cursor: pointer;
   border-radius: 5PX;
-  height: 15px;
-}
+  }
 
 input[type=submit]:hover {
   background-color: #45a049;
 }
 .footer{
+  margin-top: 2rem;
   display: flex;
   font-size: 20px;
   width: 100vw;
   justify-content: space-around;
+  background-color: rgba(0,0,0,.5);
 }
 .fa-facebook{
   color: rgb(72, 72, 238);
@@ -239,7 +240,8 @@ input[type=submit]:hover {
   display: flex;
   width: 100vw;
   justify-content: space-around;
-  font-family: Raleway, sans-serif;;
+  font-family: Raleway, sans-serif;
+  background-color: rgba(0,0,0,.5);
 }
 @media (max-width: 900px) {
   .nav_menu{
@@ -262,7 +264,11 @@ input[type=submit]:hover {
   .container{
     height: 90px;
   }
+  .my_body{
+    margin-top: 42px;
+  }
 }
+
 @media (max-width: 680px) {
   .burger_menu{
     font-size: 10px;
@@ -372,4 +378,38 @@ input[type=submit]:hover {
   width: 100vw;
   justify-content: space-around;
   font-family: Raleway, sans-serif;;
+}
+@media (max-width: 700px) {
+  .bots{
+    display: grid;
+    grid-template-columns: 1fr 11fr;
+    background-color: rgba(0,0,0,.5);
+  }
+  .footer{
+    margin-top: 0;
+    flex-direction: column;
+    width: 2rem;
+    background-color: rgba(0,0,0,0);
+    margin: 10px 5px;
+    margin-top: 8px;
+    padding-top: 4px;
+  }
+  .bot{
+    flex-direction: column;
+    width: 300px;
+    background-color: rgba(0,0,0,0);
+    height: 100px;
+  }
+  .contact-icon{
+    margin-bottom: 10px;
+  }
+  .contact-fb{
+    padding-top: 5px;
+  }
+  
+  .contact-phone{
+    padding-bottom: 5px;
+  }
+  
+
 }

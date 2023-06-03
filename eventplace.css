@@ -659,38 +659,8 @@ hr{
     width: 160px;
     height: 100px;
   }
-  .cards {
+  
 
-    position: relative;
-    height: 450px;
-    width: 300px;
-    margin-bottom: 20px;
-    perspective: 1000px;
-    transform-style: preserve-3d;
-}
-.cards label {
-
-  position: absolute;
-  width: 350px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  cursor: pointer;
-  transition: transform 0.55s ease;
-  }
-
-  .card .image img{
-
-    border-radius: 5px;
-    box-shadow: 15px 15px 40px rgba(0, 0, 0, 50%);
-    margin-top: 23px;
-    width: 90%;
-    height: 180px;
-    object-fit: cover;
-  }
-  .container_slider{
-    margin-left: 8rem;
-  }
 }
 
 @media (max-width:600px) {
@@ -700,15 +670,6 @@ hr{
   
   }
   .cards label {
-
-    position: absolute;
-    width: 290px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    cursor: pointer;
-    transition: transform 0.55s ease;
-}
 
 }
 @media (max-width:700px) {
