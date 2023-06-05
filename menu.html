@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="icon" href="icons8-shrimp-48.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +16,106 @@
   <title>menu</title>
   <link rel="stylesheet" href="new.css">
 </head>
+<style>
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
 
+  :root {
+  --bar-width: 60px;
+  --bar-height: 8px;
+  --hamburger-gap: 6px;
+  --foreground: rgba(0,0,0,.5);
+  --background: rgba(255, 255, 255, 0.5);
+  --hamburger-margin: 28px;
+  --animation-timing: 200ms ease-in-out;
+  --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+
+.hamburger-menu {
+  --x-width: calc(var(--hamburger-height) * 1.41421356237);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--hamburger-gap);
+  width: max-content;
+  position: absolute;
+  top: var(--hamburger-margin);
+  left: var(--hamburger-margin);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.hamburger-menu:has(input:checked) {
+  --foreground:  rgba(255, 255, 255, 0.5);
+  --background:  rgba(0,0,0,.5);
+}
+
+.hamburger-menu:has(input:focus-visible)::before,
+.hamburger-menu:has(input:focus-visible)::after,
+.hamburger-menu input:focus-visible {
+  border: 1px solid var(--background);
+  box-shadow: 0 0 0 1px var(--foreground);
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+  content: "";
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background-color: var(--foreground);
+  border-radius: 9999px;
+  transform-origin: left center;
+  transition: opacity var(--animation-timing), width var(--animation-timing),
+    rotate var(--animation-timing), translate var(--animation-timing),
+    background-color var(--animation-timing);
+}
+
+.hamburger-menu input {
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  pointer-events: none;
+}
+
+.hamburger-menu:has(input:checked)::before {
+  rotate: 45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height)*-1 );
+}
+
+.hamburger-menu:has(input:checked)::after {
+  rotate: -45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height)*1.7);
+}
+
+.hamburger-menu input:checked {
+  opacity: 0;
+  width: 0;
+}
+
+.sidebar {
+  transition: translate var(--animation-timing);
+  translate: 115%;
+  padding: 0rem 1rem;
+  padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+  background-color: var(--foreground);
+  color: var(--background);
+  max-width: 10rem;
+
+  position: absolute;
+
+}
+
+.hamburger-menu:has(input:checked) + .sidebar {
+  translate: 0;
+}
+</style>
 <body>
 
   <div class="container">
@@ -28,7 +128,7 @@
     <div class="my_head">
       <ul class="nav_menu">
         <li class="menu home_menu"><a href="index.html" style="text-decoration: none;">HOME</a></li>
-        <li class="menu about_menu"><a href="menu.html" style="text-decoration: none;">MENU</a></li>
+        <li class="menu about_menu"><del> MENU</del></li>
         <li class="menu services_menu"><a href="services.html" style="text-decoration: none;">SERVICES</a> </li>
         <li class="menu 4_menu"><a href="event_place.html" style="text-decoration: none;">EVENT PLACE</a></li>
         <li class="menu booking"><a href="booking.html" style="text-decoration: none;">BOOK</a></li>
@@ -37,11 +137,13 @@
     </div>
 
     <div class="contain_burger">
-      <div class="fa-burgers"><i class="fa-solid fa-burger"></i></div>
-      <nav class="burger_container">
+      <label class="hamburger-menu">
+        <input type="checkbox">
+      </label>
+      <nav class="sidebar">
         <ul class="burger_menu">
           <li class="menu home_menu"><a href="index.html" style="text-decoration: none;">HOME</a></li>
-          <li class="menu about_menu"><a href="menu.html" style="text-decoration: none;">MENU</a></li>
+          <li class="menu about_menu"><del> MENU </del></a></li>
           <li class="menu services_menu"><a href="services.html" style="text-decoration: none;">SERVICES</a> </li>
           <li class="menu event_place"><a href="event_place.html" style="text-decoration: none;">EVENT PLACE</a></li>
           <li class="menu booking"><a href="booking.html" style="text-decoration: none;">BOOK</a></li>

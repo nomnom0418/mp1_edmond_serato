@@ -29,7 +29,9 @@ body{
   width: 60%;
   margin-left: 2rem;
 }
-
+ul{
+  list-style: none;
+}
 nav{
   display: grid;
   grid-template-columns: 3fr 9fr;
@@ -73,34 +75,13 @@ nav{
   display: grid;
   grid-template-columns: 1fr 6fr;
   width: 120px;
-  position: absolute;
-  float: right;
-  transform: translate(0px, -68px);
+  position: fixed;
+  
+  display: none;
+  transform: translate(30REM, -68px);
 }
 
-.burger_container{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  justify-items: center;
-  width: 120px;
-  font-size: 12px;
-  float: right;
-  background: rgba(0,0,0,.7);
-  display: none;
-}
 
-.fa-burger{
-  font-size: 30px;
-  cursor: pointer;
-  width: 30px;
-  
-}
-.fa-burgers{
-  width: 30px;
-  display: none;
-  
-}
 a{
   color: white;
 }

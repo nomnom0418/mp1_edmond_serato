@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="icon" href="icons8-shrimp-48.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +16,106 @@
   <title>services</title>
   <link rel="stylesheet" href="new.css">
 </head>
-
+<style>
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
+  
+    :root {
+    --bar-width: 60px;
+    --bar-height: 8px;
+    --hamburger-gap: 6px;
+    --foreground: rgba(0,0,0,.5);
+    --background: rgba(255, 255, 255, 0.5);
+    --hamburger-margin: 28px;
+    --animation-timing: 200ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+  }
+  
+  .hamburger-menu {
+    --x-width: calc(var(--hamburger-height) * 1.41421356237);
+  
+    display: flex;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    width: max-content;
+    position: absolute;
+    top: var(--hamburger-margin);
+    left: var(--hamburger-margin);
+    z-index: 2;
+    cursor: pointer;
+  }
+  
+  .hamburger-menu:has(input:checked) {
+    --foreground:  rgba(255, 255, 255, 0.5);
+    --background:  rgba(0,0,0,.5);
+  }
+  
+  .hamburger-menu:has(input:focus-visible)::before,
+  .hamburger-menu:has(input:focus-visible)::after,
+  .hamburger-menu input:focus-visible {
+    border: 1px solid var(--background);
+    box-shadow: 0 0 0 1px var(--foreground);
+  }
+  
+  .hamburger-menu::before,
+  .hamburger-menu::after,
+  .hamburger-menu input {
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--foreground);
+    border-radius: 9999px;
+    transform-origin: left center;
+    transition: opacity var(--animation-timing), width var(--animation-timing),
+      rotate var(--animation-timing), translate var(--animation-timing),
+      background-color var(--animation-timing);
+  }
+  
+  .hamburger-menu input {
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    pointer-events: none;
+  }
+  
+  .hamburger-menu:has(input:checked)::before {
+    rotate: 45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height)*-1 );
+  }
+  
+  .hamburger-menu:has(input:checked)::after {
+    rotate: -45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height)*1.7);
+  }
+  
+  .hamburger-menu input:checked {
+    opacity: 0;
+    width: 0;
+  }
+  
+  .sidebar {
+    transition: translate var(--animation-timing);
+    translate: 115%;
+    padding: 0rem 1rem;
+    padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+    background-color: var(--foreground);
+    color: var(--background);
+    max-width: 10rem;
+  
+    position: absolute;
+  
+  }
+  
+  .hamburger-menu:has(input:checked) + .sidebar {
+    translate: 0;
+  }
+  </style>
 <body>
  
   <div class="container">
@@ -29,21 +129,22 @@
       <ul class="nav_menu">
         <li class="menu home_menu"><a href="index.html" style="text-decoration: none;">HOME</a></li>
         <li class="menu about_menu"><a href="menu.html" style="text-decoration: none;">MENU</a></li>
-        <li class="menu services_menu"><a href="services.html" style="text-decoration: none;">SERVICES</a> </li>
+        <li class="menu services_menu"><del> SERVICES </del></li>
         <li class="menu event_place"><a href="event_place.html" style="text-decoration: none;">EVENT PLACE</a></li>
         <li class="menu booking"><a href="booking.html" style="text-decoration: none;">BOOK</a></li>
-        <li class="menu contact_us_menu"><a href="contact_us.html" style="text-decoration: none;">CONTA
-          CT US</a></li>
+        <li class="menu contact_us_menu"><a href="contact_us.html" style="text-decoration: none;">CONTACT US</a></li>
       </ul>
     </div>
 
     <div class="contain_burger">
-      <div class="fa-burgers"><i class="fa-solid fa-burger"></i></div>
-      <nav class="burger_container">
+      <label class="hamburger-menu">
+        <input type="checkbox">
+      </label>
+      <nav class="sidebar">
         <ul class="burger_menu">
           <li class="bmenu home_menu"><a href="index.html" style="text-decoration: none;">HOME</a></li>
           <li class="bmenu about_menu"><a href="menu.html" style="text-decoration: none;">MENU</a></li>
-          <li class="bmenu services_menu"><a href="services.html" style="text-decoration: none;">SERVICES</a> </li>
+          <li class="bmenu services_menu"><del> SERVICES</del> </li>
           <li class="bmenu 4_menu"><a href="event_place.html" style="text-decoration: none;">EVENT PLACE</a></li>
           <li class="bmenu booking"><a href="booking.html" style="text-decoration: none;">BOOK</a></li>
           <li class="bmenu contact_us_menu"><a href="contact_us.html" style="text-decoration: none;">CONTACT US</a></li>    
@@ -60,35 +161,136 @@
     </div>
 
     <div class="my_body">
-      <div class="tit"> choose the best design that suits to your occasion </div>
-      <div id="set" class="setup_con"> 
-        
-        <img class="setup_image image1" src="setup/pic1.jpg" alt="setup picture">
-        <img class="setup_image image2" src="setup/pic2.jpg" alt="setup picture">
-        <img class="setup_image image3" src="setup/pic3.jpg" alt="setup picture">
-        <img class="setup_image image4" src="setup/pic4.jpg" alt="setup picture">
-        <img class="setup_image image5" src="setup/pic5.jpg" alt="setup picture">
-        <img class="setup_image image6" src="setup/pic6.jpg" alt="setup picture">
-        <img class="setup_image image7" src="setup/pic7.jpg" alt="setup picture">
-        <img class="setup_image image8" src="setup/pic8.jpg" alt="setup picture">
-        <img class="setup_image image9" src="setup/pic9.jpg" alt="setup picture">
+      <div class="tit"> 
+        choose the best design that suits to your occasion 
       </div>
+    
+      <div class="buttons">
+        <button class="blue-button" onclick="displayBlue()">BLUE</button>
+        <button class="red-button" onclick="displayRed()" >RED</button>
+        <button class="purple-button" onclick="displayPurple()">PURPLE</button>
+        <button class="green-button" onclick="displayGreen()">GREEN</button>
+        <button class="blackpink-button" onclick="displayBlackPink()">BLACK-PINK</button>
+        <button class="pastle-button" onclick="displayPastle()">PASTLE</button>
+      </div>  
+
+      <div class="blue-picture picture-color">
+        <img  class="setup_image image1" src="setup/blue/blue-gold.jpg" alt="setup picture">
+        <img  class="setup_image image1" src="setup/blue/bluegold.jpg" alt="setup picture">
+        <img  class="setup_image image1" src="setup/blue/bluewhite.jpg" alt="setup picture">
+        <img  class="setup_image image1" src="setup/blue/bluewhite2.jpg" alt="setup picture">
+        <img  class="setup_image image1" src="setup/blue/familyblue.jpg" alt="setup picture">
+        <img  class="setup_image image1" src="setup/blue/familyblue2.jpg" alt="setup picture">
+        <img  class="setup_image image1" src="setup/blue/pic6.jpg" alt="setup picture">
+        <img  class="setup_image image1" src="setup/blue/pic7.jpg" alt="setup picture">
+        <img  class="setup_image image1" src="setup/blue/pic8.jpg" alt="setup picture">
+        <img  class="setup_image image1" src="setup/blue/pic9.jpg" alt="setup picture">
+        <img  class="setup_image image1" src="setup/blue/yellowblue.jpg" alt="setup picture">
+        <img  class="setup_image image1" src="setup/blue/yellowblue2.jpg" alt="setup picture">
+      </div>
+      <div class="red-picture picture-color">
+        <img class="setup_image image2" src="setup/red/colorfull-lego2.jpg" alt="setup picture">
+        <img class="setup_image image2" src="setup/red/pic1.jpg" alt="setup picture">
+        <img class="setup_image image2" src="setup/red/pic2.jpg" alt="setup picture">
+        <img class="setup_image image2" src="setup/red/pic3.jpg" alt="setup picture">
+        <img class="setup_image image2" src="setup/red/pic4.jpg" alt="setup picture">
+        <img class="setup_image image2" src="setup/red/redblue.jpg" alt="setup picture">
+        <img class="setup_image image2" src="setup/red/redyellowblue.jpg" alt="setup picture">
+      </div>
+      <div class="purple-picture picture-color">
+        <img class="setup_image image3" src="setup/purple/pruplepink.jpg" alt="setup picture">
+        <img class="setup_image image3" src="setup/purple/purplepink2.jpg" alt="setup picture">
+        <img class="setup_image image3" src="setup/purple/violet.jpg" alt="setup picture">
+        <img class="setup_image image3" src="setup/purple/violet2.jpg" alt="setup picture">
+      </div>
+      <div class="green-picture picture-color">
+        <img class="setup_image image4" src="setup/green/applegreen-yellow.jpg" alt="setup picture">
+        <img class="setup_image image4" src="setup/green/bluegreen.jpg" alt="setup picture">
+        <img class="setup_image image4" src="setup/green/bluegreen2.jpg" alt="setup picture">
+        <img class="setup_image image4" src="setup/green/green.jpg" alt="setup picture">
+        <img class="setup_image image4" src="setup/green/green2.jpg" alt="setup picture">
+        <img class="setup_image image4" src="setup/green/green3.jpg" alt="setup picture">
+        <img class="setup_image image4" src="setup/green/greencolorfull.jpg" alt="setup picture">
+      </div>
+      <div class="black-pink-picture picture-color">
+        <img class="setup_image image5" src="setup/blackpink/black pink.jpg" alt="setup picture">
+        <img class="setup_image image5" src="setup/blackpink/blackpink2.jpg" alt="setup picture">
+        <img class="setup_image image5" src="setup/blackpink/blackpink3.jpg" alt="setup picture">
+      </div>
+      <div class="pastle-picture picture-color">
+        <img class="setup_image image6" src="setup/pastle/350998997_1038628630441606_1498741748300134485_n.jpg" alt="setup picture">
+        <img class="setup_image image6" src="setup/pastle/pastel 2.jpg" alt="setup picture">
+        <img class="setup_image image6" src="setup/pastle/pastle1.jpg" alt="setup picture">
+        <img class="setup_image image6" src="setup/pastle/pink.jpg" alt="setup picture">
+        <img class="setup_image image6" src="setup/pastle/pink2.jpg" alt="setup picture">
+        <img class="setup_image image6" src="setup/pastle/pink3.jpg" alt="setup picture">
+      </div>
+      
       <hr id="ls"><br><br>
       <div class="ls_con"> 
         <div class="tit tit2"><center> choose the best design that suits to your occasion </center></div>
-        <img class="setup_image image1" src="setup/light.jpg" alt="setup picture">
-        <img class="setup_image image2" src="setup/ampli.jfif" alt="setup picture">
-        <img class="setup_image image2" src="setup/speaker.jpg" alt="setup picture">
+        <img class="setup_image image01" src="setup/light.jpg" alt="setup picture">
+        <img class="setup_image image02" src="setup/ampli.jfif" alt="setup picture">
+        <img class="setup_image image03" src="setup/speaker.jpg" alt="setup picture">
       </div>
     
     </div>
-    
-  
-    
-    
-  
   </div>
-  <div class="footer">asas</div>
-  <script src="mp1.js"></script>
+  
+  <script>
+  
+    function displayBlue(){
+      document.querySelector('.blue-picture').style.display= "block";
+      document.querySelector('.red-picture').style.display= "none";
+      document.querySelector('.purple-picture').style.display= "none";
+      document.querySelector('.green-picture').style.display= "none";
+      document.querySelector('.black-pink-picture').style.display= "none";
+      document.querySelector('.pastle-picture').style.display= "none";
+    }
+    
+    function displayRed(){
+      document.querySelector('.red-picture').style.display= "block";
+      document.querySelector('.blue-picture').style.display= "none";
+      document.querySelector('.purple-picture').style.display= "none";
+      document.querySelector('.green-picture').style.display= "none";
+      document.querySelector('.black-pink-picture').style.display= "none";
+
+      document.querySelector('.pastle-picture').style.display= "none";
+    }
+    function displayPurple(){
+      document.querySelector('.purple-picture').style.display= "block";
+      document.querySelector('.blue-picture').style.display= "none";
+      document.querySelector('.red-picture').style.display= "none";
+      document.querySelector('.green-picture').style.display= "none";
+      document.querySelector('.black-pink-picture').style.display= "none";
+      document.querySelector('.pastle-picture').style.display= "none";
+    }
+    function displayGreen(){
+      document.querySelector('.green-picture').style.display= "block";
+      document.querySelector('.blue-picture').style.display= "none";
+      document.querySelector('.red-picture').style.display= "none";
+      document.querySelector('.purple-picture').style.display= "none";
+      document.querySelector('.black-pink-picture').style.display= "none";
+      document.querySelector('.pastle-picture').style.display= "none";
+    }
+    function displayBlackPink(){
+      document.querySelector('.black-pink-picture').style.display= "block";
+      document.querySelector('.blue-picture').style.display= "none";
+      document.querySelector('.red-picture').style.display= "none";
+      document.querySelector('.purple-picture').style.display= "none";
+      document.querySelector('.green-picture').style.display= "none";
+      document.querySelector('.pastle-picture').style.display= "none";
+    }
+    function displayPastle(){
+      document.querySelector('.pastle-picture').style.display= "block";
+      document.querySelector('.blue-picture').style.display= "none";
+      document.querySelector('.red-picture').style.display= "none";
+      document.querySelector('.purple-picture').style.display= "none";
+      document.querySelector('.green-picture').style.display= "none";
+      document.querySelector('.black-pink-picture').style.display= "none";
+    }
+    
+
+  </script>
 </body>
 </html>

@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="icon" href="icons8-shrimp-48.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +16,106 @@
   <title>tie up</title>
   <link rel="stylesheet" href="eventplace.css">
 </head>
-
+<style>
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
+  
+    :root {
+    --bar-width: 60px;
+    --bar-height: 8px;
+    --hamburger-gap: 6px;
+    --foreground: rgba(0,0,0,.5);
+    --background: rgba(255, 255, 255, 0.5);
+    --hamburger-margin: 28px;
+    --animation-timing: 200ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+  }
+  
+  .hamburger-menu {
+    --x-width: calc(var(--hamburger-height) * 1.41421356237);
+  
+    display: flex;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    width: max-content;
+    position: absolute;
+    top: var(--hamburger-margin);
+    left: var(--hamburger-margin);
+    z-index: 2;
+    cursor: pointer;
+  }
+  
+  .hamburger-menu:has(input:checked) {
+    --foreground:  rgba(255, 255, 255, 0.5);
+    --background:  rgba(0,0,0,.5);
+  }
+  
+  .hamburger-menu:has(input:focus-visible)::before,
+  .hamburger-menu:has(input:focus-visible)::after,
+  .hamburger-menu input:focus-visible {
+    border: 1px solid var(--background);
+    box-shadow: 0 0 0 1px var(--foreground);
+  }
+  
+  .hamburger-menu::before,
+  .hamburger-menu::after,
+  .hamburger-menu input {
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--foreground);
+    border-radius: 9999px;
+    transform-origin: left center;
+    transition: opacity var(--animation-timing), width var(--animation-timing),
+      rotate var(--animation-timing), translate var(--animation-timing),
+      background-color var(--animation-timing);
+  }
+  
+  .hamburger-menu input {
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    pointer-events: none;
+  }
+  
+  .hamburger-menu:has(input:checked)::before {
+    rotate: 45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height)*-1 );
+  }
+  
+  .hamburger-menu:has(input:checked)::after {
+    rotate: -45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height)*1.7);
+  }
+  
+  .hamburger-menu input:checked {
+    opacity: 0;
+    width: 0;
+  }
+  
+  .sidebar {
+    transition: translate var(--animation-timing);
+    translate: 115%;
+    padding: 0rem 1rem;
+    padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+    background-color: var(--foreground);
+    color: var(--background);
+    max-width: 10rem;
+  
+    position: absolute;
+  
+  }
+  
+  .hamburger-menu:has(input:checked) + .sidebar {
+    translate: 0;
+  }
+  </style>
 <body>
  
   <div class="container">
@@ -30,20 +130,23 @@
         <li class="menu home_menu"><a href="index.html" style="text-decoration: none;">HOME</a></li>
         <li class="menu about_menu"><a href="menu.html" style="text-decoration: none;">MENU</a></li>
         <li class="menu services_menu"><a href="services.html" style="text-decoration: none;">SERVICES</a> </li>
-        <li class="menu 4_menu"><a href="event_place.html" style="text-decoration: none;">EVENT PLACE</a></li>
+        <li class="menu 4_menu"><del> EVENT PLACE</del></li>
         <li class="menu booking"><a href="booking.html" style="text-decoration: none;">BOOK</a></li>
         <li class="menu contact_us_menu"><a href="contact_us.html" style="text-decoration: none;">CONTACT US</a></li>
       </ul>
     </div>
 
     <div class="contain_burger">
-      <div class="fa-burgers"><i class="fa-solid fa-burger"></i></div>
-      <nav class="burger_container">
+      <label class="hamburger-menu">
+        <input type="checkbox">
+      </label>
+      <nav class="sidebar">
+    
         <ul class="burger_menu">
           <li class="bmenu home_menu"><a href="index.html" style="text-decoration: none;">HOME</a></li>
           <li class="bmenu about_menu"><a href="menu.html" style="text-decoration: none;">MENU</a></li>
           <li class="bmenu services_menu"><a href="services.html" style="text-decoration: none;">SERVICES</a> </li>
-          <li class="bmenu 4_menu"><a href="event_place.html" style="text-decoration: none;">EVENT PLACE</a></li>
+          <li class="bmenu 4_menu"><del> EVENT PLACE</del></li>
           <li class="bmenu booking"><a href="booking.html" style="text-decoration: none;">BOOK</a></li>
           <li class="bmenu contact_us_menu"><a href="contact_us.html" style="text-decoration: none;">CONTACT US</a></li>    
         </ul>
@@ -266,30 +369,28 @@ Accommodations at Aqua Mira Resort are designed with your utmost relaxation in m
 
 
     </div>
+    
     <hr id="mojica"><br><br><br><br>
-    <div class="m_container">
-      <div class="imagem">
-        <img src="aquamira/m1.jpg" alt="">
+    <div class="b_container">
+      <div class="v_container">
+        <video controls src="videos/214078835_515669982970850_8097534539371864256_n.mp4"></video>
+        <div class="mpara">  At Mojica's Garden Resort, we prioritize the well-being and comfort of our guests. Our dedicated staff is committed to providing personalized service and ensuring that your every need is met. From the moment you arrive until the time of your departure, we aim to create an experience that surpasses all expectations.
+           Escape to Mojica's Garden Resort and embark on a journey of unparalleled beauty and tranquility. Let us pamper you with our warm hospitality and create memories that will last a lifetime. Discover the true essence of paradise and create your own slice of heaven.
+        </div>
       </div>
-      <div class="imagem">
-        <img src="aquamira/m2.jpg" alt="">
-      </div>
-      <div class="imagem">
-        <img src="aquamira/m3.jpg" alt="">
-      </div>
-      <div class="imagem">
-        <img src="aquamira/m4.jpg" alt="">
-      </div>
-      <div class="imagem">
-        <img src="aquamira/m5.jpg" alt="">
-      </div>
-      <div class="imagem">
-        <img src="aquamira/m6.jpg" alt="">
-      </div>
-      <div class="mpara">  At Mojica's Garden Resort, we prioritize the well-being and comfort of our guests. Our dedicated staff is committed to providing personalized service and ensuring that your every need is met. From the moment you arrive until the time of your departure, we aim to create an experience that surpasses all expectations.
+      <div class="m_container">
+        <div class="imagem">
+          <img class="mojica" src="aquamira/m1.jpg" alt="">
+          <img class="mojica" src="aquamira/m10.jpg" alt="">
+          <img class="mojica" src="aquamira/m3.jpg" alt="">
+          <img class="mojica" src="aquamira/m4.jpg" alt="">
+          <img class="mojica" src="aquamira/m7.jpg" alt="">
+          <img class="mojica" src="aquamira/m8.jpg" alt="">
+        </div>
+      </div>  
+    </div> 
 
-        Escape to Mojica's Garden Resort and embark on a journey of unparalleled beauty and tranquility. Let us pamper you with our warm hospitality and create memories that will last a lifetime. Discover the true essence of paradise and create your own slice of heaven. </div>
-    </div>
+       
     
 
 
